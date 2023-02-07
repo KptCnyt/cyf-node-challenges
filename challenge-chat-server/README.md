@@ -12,9 +12,29 @@ A simple front-end has been provided to allow you to test _some_ of the function
 
 In the optional 'React' part of this challenge, you also make a React app which allows you to read, add and delete messages, backed by your new server.
 
+## Solution
+
+You can find the solution to this challenge here:
+
+https://github.com/CodeYourFuture/node-challenge-chat-server-solution
+
+Please ask your mentors for access to this repository.
+
 ## Pre-reqs
 
 - [ ] You should have completed at least Level 1 of the Quote Server challenge before attempting this challenge.
+
+## Want to run your code on the internet?
+
+If you want to share your server with other people the easiest way to do this is to use Glitch
+
+- [ ] Make sure you're logged in to https://glitch.com/
+- [ ] Remix https://glitch.com/~cyf-chat-start
+- [ ] Name your new server `yourname-chat-server`
+- [ ] Make sure you're logged in so that it saves
+- [ ] Check that it is working by making a request to `/`
+- [ ] Take time to read the comments
+- [ ] Copy the code you've written to Glitch
 
 ## Level 1 Challenge - make the chat server
 
@@ -25,10 +45,9 @@ At this first level, your API must allow a client to:
 - [ ] Read one message specified by an ID
 - [ ] Delete a message, by ID
 
+* [ ] All message content should be passed as JSON.
 
-- [ ] All message content should be passed as JSON.
-
-- [ ] Your routes should match the patterns established in class (RESTful). See the later spoiler section "Correct Routes" if you need the answer.
+* [ ] Your routes should match the patterns established in class (RESTful). See the later spoiler section "Correct Routes" if you need the answer.
 
 You can use [this chat tester client](https://cyf-chat-tester.netlify.com/) to test your routes.
 
@@ -41,14 +60,6 @@ Each chat message is an object with the following properties:
 | `id`   | number | 17       |
 | `from` | string | "Neill"  |
 | `text` | string | "hi CYF! |
-
-## Start by remixing our example server
-
-- [ ] Make sure you're logged in to https://glitch.com/
-- [ ] Remix https://glitch.com/~cyf-chat-start
-- [ ] Name your new server `yourname-chat-server`
-- [ ] Check that it is working by making a request to `/`
-- [ ] Take time to read the comments
 
 ## Go ahead!
 
@@ -71,6 +82,7 @@ What to do now:
 ## Level 2 - simple validation
 
 For this level, your server must:
+
 - [ ] _reject_ requests to create messages if the message objects have an empty or missing `text` or `from` property.
   - [ ] In this case your server should return a status code of `400`.
 
@@ -86,18 +98,20 @@ This is a big topic for further study. We won't try to cover it in this challeng
 
 For this level your API _must_ also allow a client to:
 
-- [ ] Read *only* messages whose text contains a given substring: `/messages/search?text=express`
+- [ ] Read _only_ messages whose text contains a given substring: `/messages/search?text=express`
 - [ ] Read only the most recent 10 messages: `/messages/latest`
 
 ## Level 4 - Optional - add a timestamp, `timeSent`
 
 For this level, the server must:
+
 - [ ] store a timestamp in each message object, in a field called `timeSent`.
 - [ ] This should be set to the current time when the server first receives the message. This should be a DateTime object, which can be created with `new Date()`. It will NOT be submitted by the client.
 
 ## Level 5 - Optional - add message _update_ functionality
 
 If you want, you can also:
+
 - [ ] add support for the client to be able to _update_ a message's `text` or `from` property. We'll cover this in the next week of the module, but you can research it easily.
 
 - [ ] Your server should NOT update the `timeSent` timestamp property during an update, if the client passes it back to you.
@@ -109,6 +123,7 @@ Note: only do this if you have done all other Node homework this week - includin
 - [ ] Make a very simple React app called chat-react-app
 
 Note: Do not use `create-react-app` if you want your React code to be code-reviewed! Instead, you should:
+
 - [ ] fork our starting repo. See "How should I start my React app", below.
 
 #### Your UI should at least:
@@ -126,13 +141,14 @@ Note: Do not use `create-react-app` if you want your React code to be code-revie
 #### Don't forget:
 
 - [ ] You'll have to enable CORS on the express app (see note below)
-  * For how to post JSON, Read ["Using Fetch", on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+  - For how to post JSON, Read ["Using Fetch", on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 - [ ] Host your react app on netlify
 - [ ] Attach the link in your google classroom submission (along with your glitch server url)
 
 #### How should I start my React app?
 
 To make code review easier for us, please:
+
 - [ ] fork our starting repo. (You can later create a PR when you want a code review.)
 
 The repo is here: https://github.com/CodeYourFuture/cyf-chat-react
@@ -142,7 +158,6 @@ The repo is here: https://github.com/CodeYourFuture/cyf-chat-react
 - [ ] Then run `npm install` after opening a terminal in the new project directory.
 
 - Note that this repo was made by simply running `create-react-app` exactly as you have done in the past. There is nothing special about it!
-
 
 ### Example screenshot of Simple React app
 
@@ -169,7 +184,6 @@ and
 Read more or CORS [here](https://codeyourfuture.github.io/syllabus-master/others/cors.html)
 and in CORS in Express [here](https://expressjs.com/en/resources/middleware/cors.html).
 
-
 ### Spoiler: Correct Routes
 
 | method | example path   | behaviour              |
@@ -178,4 +192,3 @@ and in CORS in Express [here](https://expressjs.com/en/resources/middleware/cors
 | GET    | `/messages/17` | get one message by id  |
 | POST   | `/messages`    | create a new message   |
 | DELETE | `/messages/17` | delete a message by id |
-
